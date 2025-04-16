@@ -78,9 +78,9 @@
   <script>
     function extrairIDs() {
       const input = document.getElementById('inputText').value;
-      const regex = /\b\d{18,19}\b/g;
+      const regex = /\\b\\d{18,19}\\b/g;
       const matches = input.match(regex);
-      const output = matches ? matches.join('\n') : '';
+      const output = matches ? matches.join(' ') : '';
       document.getElementById('outputText').value = output;
     }
   </script>

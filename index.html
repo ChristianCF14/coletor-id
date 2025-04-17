@@ -2,13 +2,12 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coletor de ID</title>
   <style>
     body {
       background-color: #000;
       color: #fff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -16,7 +15,6 @@
     }
 
     h1 {
-      font-size: 2.5rem;
       margin-bottom: 1rem;
     }
 
@@ -28,7 +26,7 @@
       padding: 1rem;
       font-size: 1rem;
       border: none;
-      border-radius: 10px;
+      border-radius: 8px;
       resize: vertical;
     }
 
@@ -43,14 +41,13 @@
     }
 
     button {
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
+      padding: 10px 20px;
       background-color: #444;
       color: #fff;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      font-size: 1rem;
     }
 
     button:hover {
@@ -67,21 +64,18 @@
 <body>
   <h1>Coletor de ID</h1>
 
-  <textarea id="inputText" placeholder="Cole aqui o conteúdo copiado do Discord..."></textarea>
-
-  <button onclick="extrairIDs()">Extrair IDs</button>
-
-  <textarea id="outputText" readonly placeholder="Os IDs aparecerão aqui..."></textarea>
+  <textarea id="inputText" placeholder="Cole aqui o conteúdo do Discord..."></textarea>
+  <button onclick="coletarIDs()">Extrair IDs</button>
+  <textarea id="outputText" readonly placeholder="IDs extraídos aparecerão aqui..."></textarea>
 
   <div class="footer">By liidski</div>
 
   <script>
-    function extrairIDs() {
-      const input = document.getElementById('inputText').value;
-      const regex = /\\b\\d{18,19}\\b/g;
-      const matches = input.match(regex);
-      const output = matches ? matches.join(' ') : '';
-      document.getElementById('outputText').value = output;
+    function coletarIDs() {
+      const texto = document.getElementById('inputText').value;
+      const ids = texto.match(/\b\d{18,19}\b/g);
+      const resultado = ids ? ids.join(' ') : '';
+      document.getElementById('outputText').value = resultado;
     }
   </script>
 </body>
